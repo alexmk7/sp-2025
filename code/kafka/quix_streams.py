@@ -4,11 +4,11 @@ from quixstreams import Application
 
 app = Application(
     broker_address="localhost:9092",
-    consumer_group="word_counter",
+    consumer_group="group3",
     auto_offset_reset="earliest"
 )
 
-words_topic = app.topic(name="test_topic")
+words_topic = app.topic(name="words", value_deserializer="str")
 word_length_topic = app.topic(name="word_length_topic")
 
 sdf = app.dataframe(topic=words_topic)
